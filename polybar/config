@@ -60,7 +60,7 @@ radius-top = 0
 radius-bottom  = 0
 fixed-center = true
 spacing = 0
-;overline-size = 0
+overline-size = 0
 line-size = 2
 module-margin-left = 0
 module-margin-right = 0
@@ -78,7 +78,7 @@ font-2 = Iosevka Nerd Font:style=Medium:size=14;3
 
 modules-left = launcher right1 mpd right2 i3 right3 terminal song
 modules-center = xwindow
-modules-right =  left2 cpu_bar right6 network left2 date right6
+modules-right = left2 cpu_bar right6 network left2 date right6
 ;undo redo pgdown pgup pen eraser highlighter select space ruler shape save open cut quit
 padding-right = 2
 
@@ -223,7 +223,7 @@ label-visible-padding = ${self.label-focused-padding}
 
 [module/launcher]
 type = custom/text
-content = " ANK "
+content = "  ⍲  "
 ;content = "  "
 
 ; "content" has the same properties as "format-NAME"
@@ -345,8 +345,8 @@ click-left = ~/.config/i3/scripts/polybar_wrapper options
 
 [module/date]
 type = internal/date
-interval = 5
-time ="%I:%M | %a %d %b"
+interval = 1
+time ="%I:%M:%S | %a %d %b"
 label ="%time%"
 format=<label>
 format-foreground = ${colors.background}
@@ -728,6 +728,34 @@ ramp-signal-1 = 
 ramp-signal-2 = 
 ramp-signal-3 = 
 ramp-signal-4 = 
+
+[module/temperature1]
+type = internal/temperature
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 0.5
+
+; Thermal zone to use
+; To list all the zone types, run 
+; $ for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
+; Default: 0
+thermal-zone = 0
+
+; Full path of temperature sysfs path
+; Use `sensors` to find preferred temperature source, then run
+; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
+; to find path to desired file
+; Default reverts to thermal zone setting
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
+
+; Base temperature for where to start the ramp (in degrees celsius)
+; Default: 0
+base-temperature = 20
+
+; Threshold temperature to display warning label (in degrees celsius)
+; Default: 80
+warn-temperature = 60
 
 [module/weather]
 type = custom/script

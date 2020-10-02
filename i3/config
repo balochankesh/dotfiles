@@ -4,14 +4,15 @@
 for_window [class="^.*"] border pixel 1, title_format "<b> %class >> %title </b>"
 
 # gaps
-gaps inner 8
+gaps inner 4
 gaps outer 0
 
 
 #startup user
 exec_always --no-startup-id killall picom && picom -b &
 exec_always --no-startup-id blueman-applet &
-exec_always --no-startup-id pamac-tray &
+exec_always --no-startup-id pamac-tray & 
+exec_always --no-startup-id copyq & 
 #exec_always --no-startup-id nm-applet
 #exec_always --no-startup-id volumeicon
 exec_always --no-startup-id mate-power-manager
@@ -19,6 +20,15 @@ exec_always --no-startup-id mate-power-manager
 font pango:monospace 11
 
 exec --no-startup-id compton &
+for_window [class="XTerm" instance="xterm"] floating enable move right 930px,move down 500px
+
+# Colors set from ~/.Xresources
+set_from_resource	$background	background
+set_from_resource	$foreground	foreground
+set_from_resource	$color0		color0
+set_from_resource 	$color1 	color1
+
+
 
 # mod key used for most binds
 # Mod1 = Alt
@@ -59,16 +69,19 @@ bindsym Control+space exec --no-startup-id rofi_run -r
 # core
 bindsym $Mod+w          exec --no-startup-id exo-open --launch WebBrowser
 bindsym $Mod+f          exec --no-startup-id thunar
+
 bindsym $Mod+t          exec --no-startup-id kitty
 bindsym $Mod+Return     exec --no-startup-id kitty
 bindsym Control+Mod1+t exec --no-startup-id kitty
 
+bindsym Control+Mod1+l exec --no-startup-id i3lock-fancy
 # logout script
 bindsym $Mod+x exec --no-startup-id rofi_run -l
 
 # Screenshot
 bindsym Print exec --no-startup-id flameshot gui
-
+bindsym $Mod+Print exec --no-startup-id flameshot full -c
+ 
 # audio
 bindsym XF86AudioPlay        exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext        exec --no-startup-id playerctl next
@@ -195,6 +208,21 @@ bindsym $Mod+Shift+s layout stacking
 bindsym $Mod+Shift+h layout toggle split
 
 default_orientation horizontal
+
+
+# colors
+# Theme colors
+# class                 border  	backgr. 	text    	indic.  	child_border
+# My colors
+client.background	$background
+
+client.focused         	$color1 $color1		$color0		$color1			$color1	
+client.unfocused       	$color0	$color0		$color1		$color0			$color0
+client.focused_inactive	$color1	$color0	$color1		$color0			$color0
+client.urgent			$color1	$color0	$color1		$color1			$color8
+client.placeholder		$color1	$color0	$color1		$color1			$color8
+
+
 
 ###############      Border & Gaps     ###############
 
