@@ -1,13 +1,13 @@
 # Set colors from .Xresources and use Solarized color scheme as a fallback
 
-background     = #010c12
+background     = #1a1a1a
 background2    = #e4e4e4
 background-alt = ${xrdb:color1}
 
 alpha = #00000000
 
 foreground-alt = ${xrdb:color2}
-foreground     = #142f40
+foreground     = #646464
 
 primary        = ${xrdb:primary       :#268BD2}
 secondary      = ${xrdb:secondary     :#859900}

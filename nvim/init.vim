@@ -28,7 +28,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'mattn/emmet-vim'
 Plug 'iamcco/markdown-preview.vim'
-
+Plug 'dracula/vim'
 Plug 'https://github.com/kien/ctrlp.vim'
 Plug 'ap/vim-css-color'
 Plug 'tpope/vim-fugitive'
@@ -49,7 +49,7 @@ Plug 'morhetz/gruvbox'
 
 call plug#end()
 
-colorscheme nord 
+colorscheme dracula 
 set background=dark
 
 
@@ -86,5 +86,5 @@ let g:neomake_python_enabled_makers = ['pylint']
 let g:neomake_javascript_enabled_makers = ['eslint']
 "let g:airline_theme='dark'
 let python_highlight_all=1
-
+let g:airline_theme='dracula'
 source $HOME/.config/nvim/plug-config/fzf.vim

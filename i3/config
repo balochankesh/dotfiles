@@ -21,6 +21,7 @@ font pango:monospace 11
 
 exec --no-startup-id compton &
 for_window [class="XTerm" instance="xterm"] floating enable move right 930px,move down 500px
+for_window [class="feh" instance="feh"] floating enable 
 
 # Colors set from ~/.Xresources
 set_from_resource	$background	background
@@ -64,7 +65,6 @@ bindsym Mod1+q kill
 bindsym Mod1+F4 kill
 
 # launchers
-bindsym Control+space exec --no-startup-id rofi_run -r
 
 # core
 bindsym $Mod+w          exec --no-startup-id exo-open --launch WebBrowser
