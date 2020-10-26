@@ -76,7 +76,7 @@ font-0 = "Terminus (TTF):size=9;2"
 font-2 = Iosevka Nerd Font:style=Medium:size=14;3
 ;font-0 = "Digital Readout Thick Upright:size=12;3"
 
-modules-left = launcher right1 mpd right2 i3 right3 terminal song
+modules-left = right2 right1 mpd right2 i3 right3 terminal song
 modules-center = xwindow
 modules-right = left2 cpu_bar right6 network left2 date right6
 ;undo redo pgdown pgup pen eraser highlighter select space ruler shape save open cut quit
@@ -188,7 +188,7 @@ strip-wsnumbers = true
 
 label-focused = %name%
 label-focused-background = ${colors.foreground}
-label-focused-foreground = #594956
+label-focused-foreground = #f7f
 label-focused-underline  = ${colors.foreground}
 label-focused-overline  = ${colors.foreground}
 label-focused-padding = 2
